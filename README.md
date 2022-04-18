@@ -45,5 +45,5 @@ https://lifecycle.vmware.com/
 What does End of General Support mean?  
 https://www.vmware.com/support/policies.html#lifecyclepolicies  
 
-(image 2)[url2]  
+!(general support explanation)[images/general support explanation.png]  
 (image 3)[url3]  
