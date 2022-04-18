@@ -35,3 +35,15 @@ There are some known issues with vSphere 7u3. For example, if you have VMs with 
 A complete list of known issues is included and updated in the release notes and in this KB “Important list of Knowledge base articles identified for vSphere 7.0 U3c release”  
 https://kb.vmware.com/s/article/87327   
 
+
+## Important dates:
+As of 3/9/22, ESXi 6.5 and 6.7 show their End of General Support (EOGS) on 10/15/22 (vCenter has the same dates):  
+https://lifecycle.vmware.com/  
+
+(image1)[url]  
+ 
+What does End of General Support mean?  
+https://www.vmware.com/support/policies.html#lifecyclepolicies  
+
+(image 2)[url2]  
+(image 3)[url3]  
