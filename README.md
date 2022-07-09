@@ -40,10 +40,11 @@ https://kb.vmware.com/s/article/87327
 As of 3/9/22, ESXi 6.5 and 6.7 show their End of General Support (EOGS) on 10/15/22 (vCenter has the same dates):  
 https://lifecycle.vmware.com/  
 
-![lifecycle screenshot vsphere 6.x](images/lifecycle screenshot vsphere 6.x.png)  
+![lifecycle screenshot vsphere 6.x](https://github.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/blob/main/images/lifecycle%20screenshot%20vsphere%206.x.png?raw=true)  
  
 What does End of General Support mean?  
 https://www.vmware.com/support/policies.html#lifecyclepolicies  
 
-!(general support explanation)[images/general%20support%20explanation.png]  
-(image 3)[url3]  
+!(general support explanation)[https://github.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/blob/main/images/general%20support%20explanation.png?raw=true]  
+
+
