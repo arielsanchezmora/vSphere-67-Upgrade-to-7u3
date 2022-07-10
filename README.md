@@ -45,7 +45,7 @@ https://lifecycle.vmware.com/
 What does End of General Support mean?  
 https://www.vmware.com/support/policies.html#lifecyclepolicies  
 
-!(general support explanation)[https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image2.jpg]   
+![general support explanation](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image2.jpg)  
 
 
 
