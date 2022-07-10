@@ -167,10 +167,94 @@ Always open a proactive GSS ticket prior to upgrades. Present your plan to GSS a
 
 ## Hardware considerations
 
-Hardware compatibility should be checked for all types of hardware currently in the environment using the VMware Compatibility Guide  
+Hardware compatibility should be checked for all types of hardware currently deployed in the environment using the VMware Compatibility Guide  
 
 https://www.vmware.com/resources/compatibility/search.php  
 
-Several filters can be applied. Sometimes the same server model can have different family CPUs, so this should also be checked (the following screenshot is not comprehensive)  
+Several filters can be applied. Sometimes the same server model can have different family CPUs, so this should also be checked (the following screenshot is not comprehensive, but has selected the 7u3 ESXi version and a manufacturer to see all supported servers by that vendor)  
+
+![VMware Compatibility Guide](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image5.jpg)  
+
+Develop and **document** a hardware plan, both for software and hardware firmware and drivers versions. It’s important to verify the hardware vendor’s website for their recommended ESXi installation ISO image, which should include all drivers needed, and related firmware upgrade CD. They typically include release notes or “recipe” documentation to make sure you are aligned; the VMware hardware compatibility web page can also be used to verify IO device driver and firmware combinations.  
+
+![software, firmware and driver version documentation](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image6.jpg)  
+
+It’s important to get familiarized with the replacement for VUM (vSphere Upgrade Manager) called vSphere Lifecycle Management. It is similar but introduces new features. These two links are a great start:  
+
+https://core.vmware.com/resource/introducing-vsphere-lifecycle-management-vlcm  
+
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere-lifecycle-manager.doc/GUID-74295A37-E8BB-4EB9-BFBA-47B78F0C570D.html  
+
+The best practice is to use your test environments to familiarize yourself with the new interface.  
+
+
+## Licensing
+
+An upgrade from v6 to v7 will require updating licenses. Document old license keys and their location, and upgrade license keys as you upgrade environments. You will need licenses for all upgraded components, including individual hosts and vSAN.  
+
+
+## Security hardening
+
+A complete review of hardening steps has to be done with this upgrade. The steps that were used to harden v6.7 will be different in v7, although many will be similar. Always refer to the official hardening guide link to find the best recommendation:  
+
+https://www.vmware.com/security/hardening-guides.html  
+
+https://blogs.vmware.com/vsphere/2020/10/announcing-the-vsphere-security-configuration-guide-7.html  
+
+
+## Follow recommended order for all VMware component upgrades
+
+There is a specific upgrade order when several VMware products are installed together. Familiarize yourself with thisKB and follow the order in your upgrade plan document.  
+
+https://kb.vmware.com/s/article/78221  
+
+
+## Checking vCenter integration dependencies
+
+vSphere integrates with many solutions. Most of the integrations are done at the vCenter level. These include both VMware and 3rd party solutions.  
+Develop a list of all the environments and what software integrations exist. Common ones include backups, monitoring, automation, hardware and storage plugins.  
+
+![vCenter integration documentation](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image7.jpg)  
+
+Use the product interoperability matrix to check applicable versions  
+
+https://interopmatrix.vmware.com/Interoperability  
+
+For example, SRM requires to be at version to be compatible with vSphere 7u3.  
+
+![SRM and vCenter version dependencies](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image8.jpg)  
+
+Develop this list _before_ starting upgrades. It will bring clarity of what systems share integrations (for example, the same backup platform may service both dev and production environments) and will save many avoidable headaches.
+
+
+# Upgrade execution
+
+
+This section is a good start, but you will have to adjust and expand to your environment and conditions.  
+
+## Upgrade day preparation checklist
+
+1.	Finish upgrade documentation plan  
+2.	Gather temporary IP address for vCenter(s)  
+3.	Gather needed software and hardware ISOs  
+4.	Test ESXi host remote access credentials  
+5.	Set a longer maintenance window than needed  
+6.	Have proactive GSS ticket handy  
+
+## Upgrade order list
+
+An actual execution order should be in your upgrade documentation plan. The below is an example (which is not meant to be comprehensive):  
+
+1. Backup the environment  
+2. Upgrade vCenter server  
+3. Install vCenter Plugins  
+4. Upgrade ESXi Hosts  
+5. Upgrade the vSphere Distributed Switches  
+6. Upgrade VMware Tools  
+7. Upgrade VMware Virtual Hardware  
+8. Upgrade vSAN on-disk Format to 7.0 Compatibility  
+9. Upgrade Cisco UCS Infrastructure  
+10. Upgrade the Cisco UCS C-Series Servers with HUU  
+11. Upgrade storage array infrastructure  
 
 
