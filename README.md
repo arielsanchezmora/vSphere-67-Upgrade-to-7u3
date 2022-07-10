@@ -71,8 +71,13 @@ https://blogs.vmware.com/customer-experience-and-success/2022/03/your-4-step-vsp
 Because of the fix to the log4j vulnerability, it is recommended all customers upgrade to at least 7u3c:  
 https://blogs.vmware.com/vsphere/2022/01/announcing-availability-of-vsphere-7-update-3c.html  
 
-Please note, if your 6.7 or 6.5 build is newer (released on a date after) than 7u3c, you will likely run into issues with the upgrade and have to use a newer version of 7u3. For example, in the tables below, vCenter 6.7u3q was released in Feb 2022, which means you shouldn’t try to update to 7u3c, released in January – and will have to wait for a newer version of 7u3.  
+Please note, if your 6.7 or 6.5 build is newer (released on a date after) than 7u3c, you will likely run into issues with the upgrade and have to use a newer version of 7u3. For example, in the tables below, vCenter 6.7u3q was released in Feb 2022, which means you shouldn’t try to update to 7u3c, released in January – upgrade to a newer version of 7u3.  
 
+![vcenter 7 and 6.7 release tables](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image3.jpg)  
+
+
+vCenter build numbers and release dates are listed in https://kb.vmware.com/s/article/2143838  
+ESXi build numbers and release dates are listed in https://kb.vmware.com/s/article/2143832   
 
 
 
