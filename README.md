@@ -204,7 +204,7 @@ https://blogs.vmware.com/vsphere/2020/10/announcing-the-vsphere-security-configu
 
 ## Follow recommended order for all VMware component upgrades
 
-There is a specific upgrade order when several VMware products are installed together. Familiarize yourself with thisKB and follow the order in your upgrade plan document.  
+There is a specific upgrade order when several VMware products are installed together. Familiarize yourself with this KB and follow the order in your upgrade plan document.  
 
 https://kb.vmware.com/s/article/78221  
 
@@ -212,7 +212,8 @@ https://kb.vmware.com/s/article/78221
 ## Checking vCenter integration dependencies
 
 vSphere integrates with many solutions. Most of the integrations are done at the vCenter level. These include both VMware and 3rd party solutions.  
-Develop a list of all the environments and what software integrations exist. Common ones include backups, monitoring, automation, hardware and storage plugins.  
+
+Develop a list of all the environments and what software integrations exist. Common ones include backups, monitoring, automation, hardware and storage plugins. You can use this table as an example of the documentation that you should create:  
 
 ![vCenter integration documentation](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image7.jpg)  
 
@@ -220,7 +221,7 @@ Use the product interoperability matrix to check applicable versions
 
 https://interopmatrix.vmware.com/Interoperability  
 
-For example, SRM requires to be at version to be compatible with vSphere 7u3.  
+For example, SRM is required to be at version 8.5 to be compatible with vSphere 7u3:  
 
 ![SRM and vCenter version dependencies](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image8.jpg)  
 
@@ -258,3 +259,22 @@ An actual execution order should be in your upgrade documentation plan. The belo
 11. Upgrade storage array infrastructure  
 
 
+## dVS v7 new functionality
+
+v7 includes new functionalities for the distributed virtual switch, which can be reviewed here:
+
+https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/GUID-330A0689-574A-4589-9462-14CA03F3F2F4.html  
+
+![vSphere 7 new functionality](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image9.jpg)
+
+
+# Post upgrade considerations
+
+Check that all integrations, users, monitoring and automations are working. Perform tests. As you work out any issues in each environment, document the fixes as lessons learned for the next environment.
+
+ADD
+Gather vCenters in the same hosts, disable DRS
+Snapshot size
+Upgrade sequence kb https://kb.vmware.com/s/article/78221 
+https://kb.vmware.com/s/article/85685 
+https://blogs.vmware.com/performance/2021/09/extreme-performance-video-blog-series.html 
