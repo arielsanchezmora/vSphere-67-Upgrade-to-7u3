@@ -229,6 +229,19 @@ For example, SRM is required to be at version 8.5 to be compatible with vSphere 
 Develop this list _before_ starting upgrades. It will bring clarity of what systems share integrations (for example, the same backup platform may service both dev and production environments) and will save many avoidable headaches.
 
 
+## VCSA free space
+
+You will get an option to migrate the most essential data, or to also include tasks, events and performance metrics. You can compare the size of the data with the available free space in the source vCenter. When the data is larger than available free space, you will be asked for a different location than / . Typically, you will find the VUM partition has large free space (using the command _df -h_) and can provide that, check this [blog post by Luciano Patrao](https://www.provirtualzone.com/how-to-add-extra-space-to-vcenter-for-the-upgrade/) or consult with GSS.
+
+![VCSA upgrade data option](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image10.jpg)
+
+
+## vSphere Diagnostic Tool 
+
+A tool that VMware GSS has made available to the public in fling form is able to catch many problems in vCenter environments before they become an issue mid-upgrade. It is a good idea you run this and share the output in your proactive GSS ticket, as it may show some tasks that need to be performed before you attempt the upgrade.  
+
+https://flings.vmware.com/vsphere-diagnostic-tool  
+
 # Upgrade execution
 
 
@@ -269,21 +282,16 @@ https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/
 ![vSphere 7 new functionality](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image9.jpg)
 
 
-## VCSA free space
-
-You will get an option to migrate the most essential data, or to also include tasks, events and performance metrics. You can compare the size of the data with the available free space in the source vCenter. When the data is larger than available free space, you will be asked for a different location than / . Typically, you will find the VUM partition has large free space (using the command _df -h_) and can provide that, check this [blog post by Luciano Patrao](https://www.provirtualzone.com/how-to-add-extra-space-to-vcenter-for-the-upgrade/) or consult with GSS.
-
-![VCSA upgrade data option](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image10.jpg)
 
 
 # Post upgrade considerations
 
 Check that all integrations, users, monitoring and automations are working. Perform tests. As you work out any issues in each environment, document the fixes as lessons learned for the next environment.  
 
-If you created snapshots, don't hold them for too long. Snapshots can stress the storage system, and they are only useful for a few hours, 2 days should bemore than enough to have a good backup.  
+If you created snapshots, don't hold them for too long. Snapshots can stress the storage system, and they are only useful for a few hours; if you must, 2 days should be more than enough of a time window to have taken a good backup.  
 
-Snapshot size
 Great resource for vCenter performance:  
+
 https://blogs.vmware.com/performance/2021/09/extreme-performance-video-blog-series.html  
 
 vCenter now uses vCLS (vSphere Clustering Service):
@@ -291,3 +299,5 @@ vCenter now uses vCLS (vSphere Clustering Service):
 https://core.vmware.com/resource/introduction-vsphere-clustering-service-vcls  
 
 https://kb.vmware.com/s/article/80472  
+
+Enjoy vCenter 7!
