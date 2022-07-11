@@ -137,8 +137,8 @@ Types of backups to check and verify before attempting upgrades:
 
 - vCenter  
 - Distributed virtual switches  
-- ESXi config (especially important as v7 uses a new format and wipes the previous installation)  
-- 
+- ESXi config (especially important as v7 uses a new format and wipes the previous installation) https://kb.vmware.com/s/article/2042141  
+
 Also check for re-installation media for the current versions of vSphere, as well as any vendor drivers/firmware that would be needed for a rollback situation.  
 
 
