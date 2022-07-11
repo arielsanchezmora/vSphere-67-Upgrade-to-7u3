@@ -97,9 +97,10 @@ https://kb.vmware.com/s/article/87327
 
 ## Highlight from ESXi 7u3 release notes
 
-When 7u3 was announced, booting from SD storage was discouraged for 7u3. The changed code has been rolled back, but the recommendation for higher quality boot devices in the future remains  
+When 7u3 was announced, booting from SD storage was discouraged. Many customers were already using SD cards for boot and this was very inconvenient, especially for a minor upgrade. The changed code has been rolled back, but the recommendation for higher quality boot devices in the future remains  
 
 https://blogs.vmware.com/vsphere/2021/09/esxi-7-boot-media-consideration-vmware-technical-guidance.html  
+https://kb.vmware.com/s/article/85685  
 
 - The /locker partition might be corrupted when the partition is stored on a USB or SD device  
 - Due to the I/O sensitivity of USB and SD devices, the VMFS-L locker partition on such devices that stores VMware Tools and core dump files might get corrupted.  
@@ -231,7 +232,7 @@ Develop this list _before_ starting upgrades. It will bring clarity of what syst
 # Upgrade execution
 
 
-This section is a good start, but you will have to adjust and expand to your environment and conditions.  
+This section is a good start, but you will have to adjust and expand to your environment and conditions.  Place the VCSA VM in a known host and stop automatic movement of VMs by putting DRS in manual mode. You may also clone the VCSA VM as an extra backup, or create a snapshot, but be aware that linked mode vCenters need a cold snapshot of all vCenters linked, and this is something you should be doing in coordination with GSS.
 
 ## Upgrade day preparation checklist
 
@@ -268,13 +269,25 @@ https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.networking.doc/
 ![vSphere 7 new functionality](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image9.jpg)
 
 
+## VCSA free space
+
+You will get an option to migrate the most essential data, or to also include tasks, events and performance metrics. You can compare the size of the data with the available free space in the source vCenter. When the data is larger than available free space, you will be asked for a different location than / . Typically, you will find the VUM partition has large free space (using the command _df -h_) and can provide that, check this [blog post by Luciano Patrao](https://www.provirtualzone.com/how-to-add-extra-space-to-vcenter-for-the-upgrade/) or consult with GSS.
+
+![VCSA upgrade data option](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image10.jpg)
+
+
 # Post upgrade considerations
 
-Check that all integrations, users, monitoring and automations are working. Perform tests. As you work out any issues in each environment, document the fixes as lessons learned for the next environment.
+Check that all integrations, users, monitoring and automations are working. Perform tests. As you work out any issues in each environment, document the fixes as lessons learned for the next environment.  
 
-ADD
-Gather vCenters in the same hosts, disable DRS
+If you created snapshots, don't hold them for too long. Snapshots can stress the storage system, and they are only useful for a few hours, 2 days should bemore than enough to have a good backup.  
+
 Snapshot size
-Upgrade sequence kb https://kb.vmware.com/s/article/78221 
-https://kb.vmware.com/s/article/85685 
-https://blogs.vmware.com/performance/2021/09/extreme-performance-video-blog-series.html 
+Great resource for vCenter performance:  
+https://blogs.vmware.com/performance/2021/09/extreme-performance-video-blog-series.html  
+
+vCenter now uses vCLS (vSphere Clustering Service):
+
+https://core.vmware.com/resource/introduction-vsphere-clustering-service-vcls  
+
+https://kb.vmware.com/s/article/80472  
