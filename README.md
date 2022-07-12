@@ -242,6 +242,18 @@ A tool that VMware GSS has made available to the public in fling form is able to
 
 https://flings.vmware.com/vsphere-diagnostic-tool  
 
+
+## Further Reading
+
+I want to link to several of [Lucho DeLorenzi](https://twitter.com/lgdelorenzi)'s blog posts, which are very useful especially when you want to get your hands dirty and check the health of your vCenters yourself. This should be covered during your proactive ticket with VMware GSS, but just in case :)
+
+https://luchodelorenzi.com/2021/04/05/how-do-i-get-to-vsphere-7-0-without-dying-in-the-process/  
+_video is in Spanish, courtesy of the Argentina VMUG_  
+
+https://luchodelorenzi.com/2020/04/10/pre-upgrade-considerations-in-multi-vcenter-environments/  
+
+https://luchodelorenzi.com/2020/05/28/proactively-checking-and-replacing-sts-certificate-on-vsphere-6-x-7-x/  
+
 # Upgrade execution
 
 
