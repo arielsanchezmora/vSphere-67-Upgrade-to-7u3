@@ -263,7 +263,7 @@ This section is a good start, but you will have to adjust and expand to your env
 
 1.	Finish upgrade documentation plan  
 2.	Gather temporary IP address for vCenter(s)  
-3.	Gather needed software and hardware ISOs  
+3.	Gather needed software and hardware ISOs (confirm md5/sha-1 checksums to make sure they aren't corrupted)  
 4.	Test ESXi host remote access credentials  
 5.	Set a longer maintenance window than needed  
 6.	Have proactive GSS ticket handy  
