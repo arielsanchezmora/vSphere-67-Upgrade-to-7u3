@@ -1,46 +1,23 @@
-# vSphere-67-Upgrade-to-7u3
+# vSphere-7u3-Upgrade-to-8u1 - WIP
 
 Tips, tricks, gotchas and important dates collected by a friendly VMware TAM
 
-## vSphere 7 ushers in a new era
+## vSphere 8 u1 highlights
 
-vSphere 7 has lots of new capabilities. This link is the best to see them all listed and find technical information on each  
-https://blogs.vmware.com/vsphere/vsphere-7   
-
-There is also a blog post highlighting the new vSphere 7u3 features:  
-https://core.vmware.com/blog/vsphere-7-update-3-whats-new  
-
-vCenter 7.x is only available as an appliance:  
-https://blogs.vmware.com/vsphere/2017/08/farewell-vcenter-server-windows.html  
-
-vSphere 7u3c should be the minimum version to upgrade to, as it solves Log4J vulnerabilities  
-https://blogs.vmware.com/vsphere/2022/01/announcing-availability-of-vsphere-7-update-3c.html  
+Share blog posts and videos highlighting the new features/capabilities of vSphere 8u1
 
 
 ### TAM customer webinars  
 
-TAM Customer Webinar detailing v7 storage changes  
-https://www.youtube.com/watch?v=CXHxsrL5KKg&list=PLXw1EF8ZER1i0hKUm2OaUp7xTYdp504cA&index=1  
-
-TAM Customer Webinar detailing vSphere 7  
-https://www.youtube.com/watch?v=OVN9nNtjJwI  
-
-TAM Lab vSphere 7.x Planning and Upgrade  
-https://www.youtube.com/watch?v=yTmR7Rucz5Q&t=185s   
+Provide TAM customer webinars related to vSphere 8u1
 
 
-### Known issues in 7u3
-There are some known issues with vSphere 7u3. For example, if you have VMs with more than 8TB of RAM, as is customary with in-memory databases like SAP HANA, you may need to follow the workaround listed here https://blogs.vmware.com/apps/2022/02/sap_hana_vsphere70u3c_and_cooper_lake_8s_support.html  
-
-A complete list of known issues is included and updated in the release notes and in this KB “Important list of Knowledge base articles identified for vSphere 7.0 U3c release”  
-https://kb.vmware.com/s/article/87327   
+### Known issues in 8u1
+As of right now I don't see any KB articles with details   
 
 
 ## Important dates:
-As of 7/3/22, ESXi 6.5 and 6.7 show their End of General Support (EOGS) on 10/15/22 (vCenter has the same dates):  
-https://lifecycle.vmware.com/  
-
-![lifecycle screenshot vsphere 6.x](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image1.jpg)  
+List EOGS for vSphere 7u3   
  
 What does End of General Support mean?  
 https://www.vmware.com/support/policies.html#lifecyclepolicies  
@@ -48,73 +25,27 @@ https://www.vmware.com/support/policies.html#lifecyclepolicies
 ![general support explanation](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image2.jpg)  
 
 
-## General documentation on upgrade process
+## General documentation on upgrade process and recommendations
 
-vSphere 7 upgrade documentation  
-https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.esxi.upgrade.doc/GUID-65B5B313-3DBB-4490-82D2-A225446F4C99.html  
-
-This link centralizes upgrade documentation and introduces the vSphere Upgrade Assessment tool  
-https://www.vmware.com/products/vsphere/upgrade-center.html  
-
-vSphere 7 Upgrade Best Practices KB  
-https://kb.vmware.com/s/article/78205  
-
-Important information before upgrading to vSphere 7 KB  
-https://kb.vmware.com/s/article/78487  
-
-TAM blog post on upgrading to vSphere 7  
-https://blogs.vmware.com/customer-experience-and-success/2022/03/your-4-step-vsphere-7-upgrade-guide-tips-from-a-vmware-tam.html  
-
-
-## Version upgrade recommendations
-
-Because of the fix to the log4j vulnerability, it is recommended all customers upgrade to at least 7u3c:  
-https://blogs.vmware.com/vsphere/2022/01/announcing-availability-of-vsphere-7-update-3c.html  
-
-Please note, if your 6.7 or 6.5 build is newer (released on a date after) than 7u3c, you could run into issues with the upgrade and have to use a newer version of 7u3. For example, in the tables below, vCenter 6.7u3q was released in Feb 2022, which means you shouldn’t try to update to 7u3c, released in January 2022 – always try to upgrade to a newer (by date) version of vSphere 7, which gives you the advantage of bug fixes.  
-
-![vcenter 7  release tables](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image3.jpg)  
-![vcenter 6.7 release tables](https://raw.githubusercontent.com/arielsanchezmora/vSphere-67-Upgrade-to-7u3/main/images/vSphere67-Upgrade-7u3-image4.jpg) 
-
-vCenter build numbers and release dates are listed in https://kb.vmware.com/s/article/2143838  
-ESXi build numbers and release dates are listed in https://kb.vmware.com/s/article/2143832   
-
-vSphere 7u3 had a rocky start, with all prior versions to 7u3c start being recalled. You can find historical information in these two links:  
-https://blogs.vmware.com/vsphere/2021/11/important-information-on-esxi-7-update-3.html  
-https://blogs.vmware.com/vsphere/2022/01/announcing-availability-of-vsphere-7-update-3c.html  
+Provide links to upgrade process
 
 It is **very important** to read the release notes for your version:  
 
-vSphere ESXi 7 Update 3c Release Notes  
-https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-esxi-70u3c-release-notes.html  
+vSphere ESXi 8 Update 1x Release Notes  
+https://docs.vmware.com/en/VMware-vSphere/8.0/rn/vsphere-esxi-801-release-notes/index.html - this is for 8u1, 8u1a is now available 
 
-vCenter Server 7 Update 3c Release Notes  
-https://docs.vmware.com/en/VMware-vSphere/7.0/rn/vsphere-vcenter-server-70u3c-release-notes.html  
-
-This link was already mentioned in the first section, but I'm repeating it below for completeness: vSphere 7 Update 3c – List of Known Issues and Workarounds  
-https://kb.vmware.com/s/article/87327  
+vCenter Server 8 Update 1x Release Notes  
+https://docs.vmware.com/en/VMware-vSphere/8.0/rn/vsphere-vcenter-server-801-release-notes/index.html - this is for 8u1, 8u1b is now available
 
 
-## Highlight from ESXi 7u3 release notes
+## Highlights from ESXi 8u1 release notes
 
-When 7u3 was announced, booting from SD storage was discouraged. Many customers were already using SD cards for boot and this was very inconvenient, especially for a minor upgrade. The changed code has been rolled back, but the recommendation for higher quality boot devices in the future remains  
-
-https://blogs.vmware.com/vsphere/2021/09/esxi-7-boot-media-consideration-vmware-technical-guidance.html  
-https://kb.vmware.com/s/article/85685  
-
-- The /locker partition might be corrupted when the partition is stored on a USB or SD device  
-- Due to the I/O sensitivity of USB and SD devices, the VMFS-L locker partition on such devices that stores VMware Tools and core dump files might get corrupted.  
-
-This issue is resolved in this release. By default, ESXi loads the locker packages to the RAM disk during boot.  
+Provide highlights of ESXi 8u1 release notes
 
 
-## Highlights from vCenter Server 7u3 release notes
+## Highlights from vCenter Server 8u1 release notes
 
-A driver problem that stopped the upgrade was identified. Please note the part I have put in bold in the following statement. This document assumes upgrades from 6.7 mainly but includes this information just in case.  
-
-Due to the recent name change in the Intel i40en driver to i40enu and back to i40en, ESXi hosts in some environments later than ESXi 7.0 Update 2a might have both driver versions, which results in several issues, all resolved in vSphere 7.0 Update 3c. **Affected ESXi versions are 7.0 Update 3a, 7.0 Update 3, 7.0 Update 2d, and 7.0 Update 2c**. VMware provides a _vSphere_upgrade_assessment.py_ script that you can use to identify any ESXi hosts that require remediation before you start a vCenter Server upgrade. To download the script and for more information, see VMware knowledge base article 87258, and the instructional video on the vCenter Server 7.0 Update 3c (7.0.3.00300) upgrade precheck.  https://www.youtube.com/watch?v=xSA58Xzf8Wg  
-
-When you start the update or upgrade of your vCenter Server system, an upgrade precheck runs a scan to detect if ESXi hosts of versions potentially affected by the issues around the Intel driver name change exist in your vCenter Server inventory. If the precheck identifies such ESXi hosts, a detailed scan runs to provide a list of all affected hosts, specifying file locations where you can find the list, and providing guidance how to proceed.
+Provide highlights of vCenter Server 8u1 release notes
 
 
 # Upgrade planning
@@ -207,7 +138,7 @@ https://blogs.vmware.com/vsphere/2020/10/announcing-the-vsphere-security-configu
 
 There is a specific upgrade order when several VMware products are installed together. Familiarize yourself with this KB and follow the order in your upgrade plan document.  
 
-https://kb.vmware.com/s/article/78221  
+https://kb.vmware.com/s/article/89745 - link has been updated for vSphere 8 
 
 
 ## Checking vCenter integration dependencies
@@ -240,7 +171,7 @@ You will get an option to migrate the most essential data, or to also include ta
 
 A tool that VMware GSS has made available to the public in fling form is able to catch many problems in vCenter environments before they become an issue mid-upgrade. It is a good idea you run this and share the output in your proactive GSS ticket, as it may show some tasks that need to be performed before you attempt the upgrade.  
 
-https://flings.vmware.com/vsphere-diagnostic-tool  
+https://flings.vmware.com/vsphere-diagnostic-tool - confirmed that this is updated to support v8u1 
 
 
 ## Further Reading
