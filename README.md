@@ -1,4 +1,4 @@
-# vSphere-7u3-Upgrade-to-8u1 - WIP
+# vSphere-7u3-Upgrade-to-8u1 - WIP - Hi Christina!
 
 Tips, tricks, gotchas and important dates collected by a friendly VMware TAM
 
